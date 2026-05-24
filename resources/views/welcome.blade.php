@@ -1,0 +1,1 @@
+<p>Tes ini laravel apakah sudah jalan?</p>

@@ -14,7 +14,7 @@ class BookingTransactions extends Model
     protected $fillable = [
         'name',
         'phone_number',
-        'booking_trx_id',
+        'booking_trx',
         'office_space_id',
         'total_amount',
         'duration',
@@ -27,9 +27,19 @@ class BookingTransactions extends Model
         $prefix = 'FO-';
         do {
             $randomString = $prefix . mt_rand(1000, 9999);
-        } while (self::where('booking_trx_id', $randomString)->exists());
+        } while (self::where('booking_trx', $randomString)->exists());
 
         return $randomString;
+    }
+
+    public function getBookingTrxIdAttribute()
+    {
+        return $this->attributes['booking_trx'] ?? null;
+    }
+
+    public function setBookingTrxIdAttribute($value)
+    {
+        $this->attributes['booking_trx'] = $value;
     }
 
     public function officeSpace():BelongsTo{

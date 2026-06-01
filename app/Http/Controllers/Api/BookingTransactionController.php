@@ -18,7 +18,7 @@ class BookingTransactionController extends Controller
 
         $validatedData['is_paid']=false;
 
-        $validatedData['booking_trx_id']=BookingTransactions::generateUniqueTrxId();
+        $validatedData['booking_trx']=BookingTransactions::generateUniqueTrxId();
         
         $validatedData['duration']=$officeSpace->duration;
 
